@@ -1,7 +1,13 @@
 // RetryImage.js
 import React, { useState } from 'react';
 
-const RetryImage = ({ src, alt, maxRetries = 1000, ...props }) => {
+interface RetryImageProps {
+  src: string;
+  alt?: string;
+  maxRetries?: number;
+}
+
+const RetryImage: React.FC<RetryImageProps> = ({ src, alt, maxRetries = 1000, ...props }) => {
   const [retryCount, setRetryCount] = useState(0);
   const [imgSrc, setImgSrc] = useState(src);
 
@@ -14,7 +20,7 @@ const RetryImage = ({ src, alt, maxRetries = 1000, ...props }) => {
     }
   };
 
-  return <img src={imgSrc} alt={alt} onError={handleError} {...props} />;
+  return <img src={imgSrc} alt={alt} {...props} />;
 };
 
 export default RetryImage;
