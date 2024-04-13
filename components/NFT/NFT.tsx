@@ -39,9 +39,10 @@ import {
   
     return (
       <>
+        
         {" "}
         <RetryImage
-          src={nft?.metadata.image}
+          src={nft?.metadata.image ?? 'logo.png'}
           alt={`NFT ${nft.metadata.id}`}
           className={styles.nftImage}
         />
