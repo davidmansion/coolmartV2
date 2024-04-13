@@ -1,103 +1,95 @@
-import { ConnectWallet } from "@thirdweb-dev/react";
-import styles from "../styles/Home.module.css";
-import Image from "next/image";
 import { NextPage } from "next";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../styles/Home.module.css";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 const Home: NextPage = () => {
   return (
-    <main className={styles.main}>
-      <div className={styles.container}>
-        <div className={styles.header}>
-          <h1 className={styles.title}>
-            Welcome to{" "}
-            <span className={styles.gradientText0}>
-              <a
-                href="https://thirdweb.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+    <motion.div // Wrap the entire component with motion.div
+      initial={{ opacity: 0, y: 20 }} // Initial animation state
+      animate={{ opacity: 1, y: 0 }} // Animation on component mount
+      transition={{ duration: 1 }} // Animation duration
+      className={styles.container}
+    >
+      <div className={styles.content}>
+        <div className={styles.hero}>
+          <div className={styles.heroBackground}>
+            <div className={styles.heroBackgroundInner}>
+              <Image
+                src=""
+                width={1280}
+                height={1080}
+                alt="Background gradient from red to blue"
+                quality={100}
+                className={styles.gradient}
+              />
+            </div>
+          </div>
+          <div className={styles.heroAssetFrame}>
+            <div className={styles.videoOverlay}></div> {/* Add overlay */}
+            <video
+              width="100%"
+              autoPlay
+              loop
+              muted
+              playsInline // Add playsInline attribute
+              className={styles.yourVideoStyle}
+            >
+              <source
+                src="/bghero.mp4" // Provide the correct path to the video
+                type="video/mp4"
+              />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className={styles.heroBodyContainer}>
+            <div className={styles.heroBody}>
+              <motion.h1 // Wrap the heading with motion.h1
+                initial={{ opacity: 0, y: -20 }} // Initial animation state
+                animate={{ opacity: 1, y: 0 }} // Animation on component mount
+                transition={{ duration: 0.5, delay: 0.5 }} // Animation duration and delay
+                className={styles.heroTitle}
               >
-                thirdweb.
-              </a>
-            </span>
-          </h1>
+                <span className={styles.heroTitleGradient}>
+                  <i>Collect DANA NFTs!</i>
+                </span>
+                <br />
+                Buy and sell your existing DANA NFTs.
+              </motion.h1>
+              <motion.p // Wrap the paragraph with motion.p
+                initial={{ opacity: 0, y: 20 }} // Initial animation state
+                animate={{ opacity: 1, y: 0 }} // Animation on component mount
+                transition={{ duration: 0.5, delay: 1 }} // Animation duration and delay
+                className={styles.heroSubtitle}
+              >
+                <Link
+                  className={styles.link}
+                  href="https://daveynakamoto.lol/"
+                  target="_blank"
+                >
+                  DANA MARKET
+                </Link>{" "}
+                NFT Staking: <i>coming soon!</i>.
+              </motion.p>
 
-          <p className={styles.description}>
-            Get started by configuring your desired network in{" "}
-            <code className={styles.code}>src/index.js</code>, then modify the{" "}
-            <code className={styles.code}>src/App.js</code> file!
-          </p>
-
-          <div className={styles.connect}>
-            <ConnectWallet />
+              <div className={styles.heroCtaContainer}>
+                <Link className={styles.heroCta} href="/buy">
+                  <b>Get Started</b>
+                </Link>
+                <Link
+                  className={styles.secondaryCta}
+                  href="https://daveynakamoto.lol/"
+                  target="_blank"
+                >
+                  DAVEY NAKAMOTO WEBSITE
+                </Link>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div className={styles.grid}>
-          <a
-            href="https://portal.thirdweb.com/"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/portal-preview.png"
-              alt="Placeholder preview of starter"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText1}>Portal ➜</h2>
-              <p>
-                Guides, references, and resources that will help you build with
-                thirdweb.
-              </p>
-            </div>
-          </a>
-
-          <a
-            href="https://thirdweb.com/dashboard"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/dashboard-preview.png"
-              alt="Placeholder preview of starter"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText2}>Dashboard ➜</h2>
-              <p>
-                Deploy, configure, and manage your smart contracts from the
-                dashboard.
-              </p>
-            </div>
-          </a>
-
-          <a
-            href="https://thirdweb.com/templates"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              src="/images/templates-preview.png"
-              alt="Placeholder preview of templates"
-              width={300}
-              height={200}
-            />
-            <div className={styles.cardText}>
-              <h2 className={styles.gradientText3}>Templates ➜</h2>
-              <p>
-                Discover and clone template projects showcasing thirdweb
-                features.
-              </p>
-            </div>
-          </a>
-        </div>
       </div>
-    </main>
+    </motion.div>
   );
 };
 

@@ -1,22 +1,68 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* global.css */
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: "Inter", sans-serif;
-}
-
-a {
-  color: #84309c;
-  text-decoration: none;
+  font-family: Inter, Helvetica, Arial, sans-serif;
+  height: 100%;
+  overflow: visible ; /* Prevent page scrolling */
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  color-scheme: dark;
+}
+
 body {
-  color: #e7e8e8;
-  background: #070707;
+  color: #ffffff;
+  background: #000000;
+  --color-primary: #fada3f;
+  --color-secondary: #ff2136;
+  --color-tertiary: #0294fe;
+  --color-quaternary: #9b4dff;
+  --card-background: #252133;
+  --highlighted-background: #202326;
+  font-weight: 400;
+  position: relative; /* Set position to relative for the absolute positioning of the video */
+}
+
+/* Add the video styling */
+video {
+  position: ;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1; /* Place the video behind other content */
+}
+
+/* Add the overlay div to create the background effect */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6); /* Adjust the opacity as needed */
+  z-index: -1; /* Place the overlay behind other content */
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+h3 {
+  font-size: 22px;
+  line-height: 28px;
+  font-weight: 700;
+  margin-bottom: 0px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
