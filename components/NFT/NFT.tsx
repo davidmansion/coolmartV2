@@ -44,7 +44,6 @@ import {
         <RetryImage
           src={nft?.metadata.image ?? 'logo.png'}
           alt={`NFT ${nft.metadata.id}`}
-          className={styles.nftImage}
         />
         <p className={styles.nftTokenId}>Token ID #{nft?.metadata.id}</p>
         <p className={styles.nftName}>{nft?.metadata.name}</p>
