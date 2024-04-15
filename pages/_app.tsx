@@ -16,7 +16,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Navbar />
       <Component {...pageProps} />
       </ThirdwebProviderV5>
-          </V4TWProvider>
     </ThirdwebProvider>
   );
 }
