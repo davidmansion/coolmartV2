@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider as ThirdwebProviderV5 } from "thirdweb/react";
 import "../styles/globals.css";
 import { Navbar } from "../components/Navbar/Navbar";
 
@@ -11,8 +12,10 @@ const activeChain = "binance";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider activeChain={activeChain} clientId={process.env.NEXT_PUBLIC_THIRDWEB_CLIENT_ID} secretKey={process.env.TW_SECRET_KEY}>
+      <ThirdwebProviderV5>
       <Navbar />
       <Component {...pageProps} />
+        <ThirdwebProviderV5>
     </ThirdwebProvider>
   );
 }
